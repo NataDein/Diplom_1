@@ -1,6 +1,5 @@
 package praktikum;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -11,12 +10,12 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 
 public class BunTest {
-    private final String BUNS_NAME;
-    private final float PRICE;
+    private final String bunsName;
+    private final float price;
 
-   public BunTest (String bunsName, float bunsPrice) {
-       this.BUNS_NAME = bunsName;
-       this.PRICE = bunsPrice;
+    public BunTest (String bunsName, float bunsPrice) {
+       this.bunsName = bunsName;
+       this.price = bunsPrice;
    }
 
    @Parameterized.Parameters
@@ -34,20 +33,28 @@ public class BunTest {
     @Test
     public void checkGetName() {
         //Создаем булку
-        Bun bun = new Bun(BUNS_NAME, PRICE);
+        Bun bun = new Bun(bunsName, price);
 
         //Проверяем, что при вызове getName получается верное название булочки
-        assertEquals("Полученное название булки не совпадает с ожидаемым", BUNS_NAME, bun.getName());
+        assertEquals("Полученное название булки не совпадает с ожидаемым", bunsName, bun.getName());
 
     }
 
     //Проверка получения цены булочки
     @Test
     public void checkGetPrice() {
+        // Максимальная разница сравнения цены при которой можно считать проверяемые цены равными
+        float deltaForSimilarPrice = 0;
+
         //Создаем булку
-        Bun bun = new Bun(BUNS_NAME, PRICE);
+        Bun bun = new Bun(bunsName, price);
 
         //Проверяем, что при вызове getPrice получается верная стоимость булочки
-        assertEquals("Полученная цена булочки не совпадает с ожидаемой", PRICE, bun.getPrice(),0);
+        assertEquals(
+            "Полученная цена булочки не совпадает с ожидаемой",
+            price,
+            bun.getPrice(),
+            deltaForSimilarPrice
+        );
     }
 }

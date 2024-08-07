@@ -99,10 +99,17 @@ public class BurgerTest {
 
         //Вызываем тестируемый метод расчета цены
         float actualPrice = burger.getPrice();
+
+        // Максимальная разница сравнения цены при которой можно считать проверяемые цены равными
+        float deltaForSimilarPrice = 0;
+
         //Проверяем, что стоимость соответствует ожидаемой
-        assertEquals("Ожидаемая стоимость бургера не соответствует фактической", expectedPrice, actualPrice,0);
-
-
+        assertEquals(
+            "Ожидаемая стоимость бургера не соответствует фактической",
+            expectedPrice,
+            actualPrice,
+            deltaForSimilarPrice
+        );
     }
 
     @Test

@@ -39,6 +39,14 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
 
+                <configuration>
+                    <excludes>
+                        <!-- Исключаем пакеты, не требующие отчёта о покрытии, чтобы не портили расчёт статистики -->
+                        <exclude>/praktikum/Database.class</exclude>
+                        <exclude>/praktikum/Praktikum.class</exclude>
+                    </excludes>
+                </configuration>
+
                 <executions>
                     <execution>
                         <id>prepare-agent</id>

@@ -3,24 +3,19 @@ package praktikum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.List;
 
 import static org.junit.Assert.*;
-import static praktikum.IngredientType.*;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
-    private final IngredientType TYPE;
-    private final String NAME;
-    private final float PRICE;
+    private final IngredientType type;
+    private final String name;
+    private final float price;
 
     public IngredientTest (IngredientType type, String name, float price) {
-        this.TYPE = type;
-        this.NAME = name;
-        this.PRICE = price;
+        this.type = type;
+        this.name = name;
+        this.price = price;
     }
 
     @Parameterized.Parameters
@@ -39,17 +34,17 @@ public class IngredientTest {
     @Test
     public void checkGetPrice() {
         //Создаем ингредиент
-        Ingredient ingredient = new Ingredient(TYPE, NAME, PRICE);
+        Ingredient ingredient = new Ingredient(type, name, price);
         //Проверяем, что полученная цена совпадает с ожидаемой
-        assertEquals("Полученная цена ингредиента не совпадает с ожидаемой", PRICE, ingredient.getPrice(),0);
+        assertEquals("Полученная цена ингредиента не совпадает с ожидаемой", price, ingredient.getPrice(),0);
     }
 
     @Test
     public void checkGetName() {
         //Создаем ингредиент
-        Ingredient ingredient = new Ingredient(TYPE, NAME, PRICE);
+        Ingredient ingredient = new Ingredient(type, name, price);
         //Проверяем, что полученное название совпадает с ожидаемым
-        assertEquals("Полученное название ингредиента не совпадает с ожидаемым", NAME, ingredient.getName());
+        assertEquals("Полученное название ингредиента не совпадает с ожидаемым", name, ingredient.getName());
 
     }
 
@@ -57,9 +52,9 @@ public class IngredientTest {
     @Test
     public void checkGetType() {
         //Создаем ингредиент
-        Ingredient ingredient = new Ingredient(TYPE, NAME, PRICE);
+        Ingredient ingredient = new Ingredient(type, name, price);
         //Проверяем, что полученный тип ингредиента совпадает с ожидаемым
-        assertEquals("Полученный тип ингредиента не совпадает с ожидаемым", TYPE, ingredient.getType());
+        assertEquals("Полученный тип ингредиента не совпадает с ожидаемым", type, ingredient.getType());
 
     }
 
